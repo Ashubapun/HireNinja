@@ -10,13 +10,13 @@ const team = [
   {
     name: 'Ashish',
     role: 'Co-Founder & CEO',
-    bio: 'Former head of talent at two Series B startups. Built HireNinja after watching great companies lose great people to slow, broken hiring processes.',
+    bio: '"The best hire you ever make won\'t come from luck — it comes from knowing exactly what greatness looks like before you meet it."',
     initials: 'AS',
   },
   {
     name: 'Ashutosh',
     role: 'Co-Founder & CTO',
-    bio: 'Brings deep operational expertise in scaling recruitment teams. Passionate about building systems that make great hiring repeatable and predictable.',
+    bio: '"Build systems that scale, and the right people will always find their way to the right place — fast."',
     initials: 'AT',
   },
 ];
