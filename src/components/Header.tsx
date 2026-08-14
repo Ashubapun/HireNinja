@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import AppLogo from '@/components/ui/AppLogo';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'Services', href: '/services' },
@@ -37,14 +37,21 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <AppLogo
-            size={32}
-            text="Dispatch"
-            iconName="TruckIcon"
-            onClick={() => router?.push('/home')}
-            className="cursor-pointer"
+        <div
+          className="flex items-center gap-2 cursor-pointer group"
+          onClick={() => router?.push('/home')}
+        >
+          <Image
+            src="/assets/images/Hire_Ninja_Image.jpeg"
+            alt="Hire Ninja Logo"
+            width={72}
+            height={72}
+            className="rounded-xl object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-200"
           />
+          <span className="text-2xl font-extrabold tracking-tight leading-none">
+            <span className="text-white">Hire</span>
+            <span className="text-amber">&nbsp;Ninja</span>
+          </span>
         </div>
 
         {/* Nav links */}

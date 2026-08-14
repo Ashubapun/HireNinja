@@ -96,47 +96,7 @@ export default function FinalCTA() {
           </div>
         </div>
 
-        {/* Secondary: three entry points */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {[
-          {
-            icon: 'UserIcon',
-            title: 'Individual Role Hiring',
-            desc: 'One specialist, one team gap. We source, screen, and shortlist — you make the final call. Most roles filled within 2 weeks.',
-            cta: 'Tell us about the role'
-          },
-          {
-            icon: 'UserGroupIcon',
-            title: 'Team Pod Hiring',
-            desc: 'Need a full squad assembled at once? We build cohesive pods of 2–8 people matched to your culture, stack, and pace.',
-            cta: 'Build your pod'
-          },
-          {
-            icon: 'AcademicCapIcon',
-            title: 'Niche Skills & Screening',
-            desc: 'Hard-to-find domain expertise or a rigorous screening process for candidates you\'ve already found? We handle both.',
-            cta: 'Talk to a specialist'
-          }].
-          map((item, i) =>
-          <div
-            key={i}
-            className={`p-6 bg-white rounded-2xl shadow-card border border-navy/5 card-lift space-y-3 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            style={{ transitionDelay: `${i * 150 + 300}ms` }}>
 
-              <div className="w-10 h-10 rounded-xl bg-amber/15 flex items-center justify-center">
-                <Icon name={item.icon as Parameters<typeof Icon>[0]['name']} size={20} className="text-amber" />
-              </div>
-              <h4 className="font-black text-navy text-base">{item.title}</h4>
-              <p className="text-sm text-highway leading-relaxed">{item.desc}</p>
-              <a
-              href="/clients"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-amber hover:text-amber-dark transition-colors">
-                {item.cta}
-                <Icon name="ArrowRightIcon" size={13} className="text-amber" />
-              </a>
-            </div>
-          )}
-        </div>
       </div>
     </section>);
 }

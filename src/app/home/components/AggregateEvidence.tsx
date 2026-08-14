@@ -65,16 +65,52 @@ function StatBlock({ value, suffix, prefix = '', label, sublabel, start, delay }
     </div>);
 }
 
-// Client logo strip — real-sounding companies
-const CLIENT_LOGOS = [
-'Meridian Software',
-'Apex Consulting Group',
-'Northfield Analytics',
-'Crestview Technologies',
-'Harlow & Partners',
-'Summit Digital',
-'Ironbridge Capital',
-'Clearpath Solutions'];
+// Industries we've hired for
+const INDUSTRIES = [
+  '🏦 Banking & Finance',
+  '🏥 Healthcare & MedTech',
+  '💻 SaaS & Cloud',
+  '🛒 E-Commerce & Retail',
+  '🏗️ Construction & Engineering',
+  '📱 Mobile & App Development',
+  '🔒 Cybersecurity',
+  '🎓 EdTech',
+  '⚡ Energy & CleanTech',
+  '🚚 Logistics & Supply Chain',
+  '🎮 Gaming & Entertainment',
+  '🤖 AI & Machine Learning',
+  '📊 Data & Analytics',
+  '🏠 PropTech & Real Estate',
+  '✈️ Travel & Hospitality',
+];
+
+// Tech stacks we've hired for
+const TECH_STACKS = [
+  'React',
+  'Node.js',
+  'Python',
+  'AWS',
+  'TypeScript',
+  'Kubernetes',
+  'Go',
+  'PostgreSQL',
+  'Rust',
+  'Next.js',
+  'Docker',
+  'GraphQL',
+  'Java',
+  'Terraform',
+  'MongoDB',
+  'Vue.js',
+  'Scala',
+  'Redis',
+  'Swift',
+  'Kotlin',
+  'Azure',
+  'GCP',
+  'Spark',
+  'Kafka',
+];
 
 // Testimonial data — recruitment context
 const TESTIMONIALS = [
@@ -171,55 +207,67 @@ export default function AggregateEvidence() {
             delay={600} />
         </div>
 
-        {/* Testimonials */}
-        <div className="py-20">
-          <div className="grid lg:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) =>
-            <div
-              key={i}
-              className={`p-6 rounded-3xl border border-white/10 bg-white/5 space-y-5 card-lift transition-all duration-700 ${statsStarted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: `${i * 150 + 400}ms` }}>
 
-                {/* Quote */}
-                <div className="text-4xl text-amber/30 font-black leading-none">"</div>
-                <p className="text-white/70 text-sm leading-relaxed">{t.quote}</p>
+        {/* Ticker strips */}
+        <div className="border-t border-white/10 pt-16 space-y-8">
 
-                {/* Stat badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber/15 rounded-full border border-amber/20">
-                  <Icon name="ArrowTrendingUpIcon" size={14} className="text-amber" />
-                  <span className="text-xs font-black text-amber">{t.stat}</span>
-                </div>
+          {/* Industries strip — scrolls right to left */}
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-amber/60 text-center mb-5">
+              Industries We've Hired For
+            </p>
+            <div className="relative overflow-hidden">
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(to right, #0B1628, transparent)' }} />
+              <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(to left, #0B1628, transparent)' }} />
 
-                {/* Person */}
-                <div className="flex items-center gap-3 pt-2 border-t border-white/10">
-                  <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-amber/20">
-                    <img src={t.avatar} alt={t.alt} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">{t.name}</p>
-                    <p className="text-[10px] text-white/40">{t.title} · {t.company}</p>
-                  </div>
-                </div>
+              <div
+                className="flex gap-6 w-max"
+                style={{ animation: 'ticker-ltr 40s linear infinite' }}
+              >
+                {[...INDUSTRIES, ...INDUSTRIES].map((name, i) => (
+                  <span
+                    key={i}
+                    className="flex-shrink-0 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-white/70 font-semibold text-sm whitespace-nowrap hover:border-amber/40 hover:text-amber transition-colors duration-200"
+                  >
+                    {name}
+                  </span>
+                ))}
               </div>
-            )}
+            </div>
+          </div>
+
+          {/* Tech stacks strip — scrolls left to right (reverse) */}
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-amber/60 text-center mb-5">
+              Tech Stacks We've Hired For
+            </p>
+            <div className="relative overflow-hidden">
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(to right, #0B1628, transparent)' }} />
+              <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: 'linear-gradient(to left, #0B1628, transparent)' }} />
+
+              <div
+                className="flex gap-4 w-max"
+                style={{ animation: 'ticker-rtl 35s linear infinite' }}
+              >
+                {[...TECH_STACKS, ...TECH_STACKS].map((tech, i) => (
+                  <span
+                    key={i}
+                    className="flex-shrink-0 px-4 py-2 rounded-lg border border-amber/20 bg-amber/5 text-amber font-black text-xs uppercase tracking-widest whitespace-nowrap hover:bg-amber/15 hover:border-amber/40 transition-colors duration-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Client logo strip */}
-        <div className="border-t border-white/10 pt-16">
-          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 text-center mb-10">
-            Trusted by startups, scale-ups, and established enterprises
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
-            {CLIENT_LOGOS.map((name) =>
-            <span
-              key={name}
-              className="text-white/20 font-black text-sm uppercase tracking-wider hover:text-white/50 transition-colors cursor-default">
-                {name}
-              </span>
-            )}
-          </div>
-        </div>
       </div>
     </section>);
 }
