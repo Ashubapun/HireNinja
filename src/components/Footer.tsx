@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import AppLogo from '@/components/ui/AppLogo';
+import Image from 'next/image';
 
 export default function Footer() {
   const links = [
@@ -17,12 +17,15 @@ export default function Footer() {
         {/* Single row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
-          <AppLogo
-            size={28}
-            text="Dispatch"
-            iconName="TruckIcon"
-            className="opacity-70 hover:opacity-100 transition-opacity"
-          />
+          <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity duration-200">
+            <Image
+              src="/assets/images/Hire_Ninja_Image.jpeg"
+              alt="Hire Ninja Logo"
+              width={140}
+              height={140}
+              className="rounded-lg object-contain mix-blend-multiply"
+            />
+          </div>
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
@@ -60,7 +63,7 @@ export default function Footer() {
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <span className="text-sm text-highway/60 font-medium">© 2026 Dispatch</span>
+            <span className="text-sm text-highway/60 font-medium">© 2026 Hire Ninja</span>
           </div>
         </div>
       </div>

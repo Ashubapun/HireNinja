@@ -5,7 +5,6 @@ import HeroSection from './components/HeroSection';
 import CaseStudyGrid from './components/CaseStudyGrid';
 import AggregateEvidence from './components/AggregateEvidence';
 import FinalCTA from './components/FinalCTA';
-import PersistentBar from './components/PersistentBar';
 
 export default function HomePage() {
   return (
@@ -18,7 +17,6 @@ export default function HomePage() {
         <FinalCTA />
       </main>
       <Footer />
-      <PersistentBar />
     </div>
   );
 }
