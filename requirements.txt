@@ -1,0 +1,44 @@
+# Web Framework
+FastAPI
+uvicorn
+pydantic
+pydantic-settings
+python-multipart
+
+# Database & ORM
+supabase
+psycopg[binary]
+SQLAlchemy
+asyncpg
+alembic
+
+# Generative AI & Langchain Framework
+openai
+google-generativeai
+anthropic
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-google-genai
+langchain-anthropic
+langgraph
+
+# Document / Resume Parsing
+PyPDF2
+pdfminer.six
+python-docx
+unstructured
+
+# Payments
+stripe
+
+# General Utilities
+python-dotenv
+requests
+httpx
+aiohttp
+celery
+redis
+pandas
+numpy
