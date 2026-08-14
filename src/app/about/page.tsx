@@ -8,16 +8,22 @@ import AppIcon from '@/components/ui/AppIcon';
 
 const team = [
   {
-    name: 'Ashish',
+    name: 'Ashish Singh',
     role: 'Co-Founder & CEO',
     bio: '"The best hire you ever make won\'t come from luck — it comes from knowing exactly what greatness looks like before you meet it."',
     initials: 'AS',
   },
   {
-    name: 'Ashutosh',
+    name: 'Ashutosh Das',
     role: 'Co-Founder & CTO',
     bio: '"Build systems that scale, and the right people will always find their way to the right place — fast."',
-    initials: 'AT',
+    initials: 'AD',
+  },
+  {
+    name: 'Ipshita Tiwari',
+    role: 'Client Acquisition Head',
+    bio: '"Growth isn\'t just about finding clients; it\'s about building lasting partnerships rooted in trust and shared success."',
+    initials: 'IT',
   },
 ];
 
