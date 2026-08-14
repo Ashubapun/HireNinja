@@ -15,7 +15,7 @@ const team = [
   },
   {
     name: 'Ashutosh',
-    role: 'Co-Founder & COO',
+    role: 'Co-Founder & CTO',
     bio: 'Brings deep operational expertise in scaling recruitment teams. Passionate about building systems that make great hiring repeatable and predictable.',
     initials: 'AT',
   },
