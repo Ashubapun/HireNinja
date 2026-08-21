@@ -65,21 +65,7 @@ function formatNumber(n: number): string {
 }
 
 export default function HeroSection() {
-  const [count, setCount] = useState(3847);
-  const [prevCount, setPrevCount] = useState(3847);
   const [visibleAvatars, setVisibleAvatars] = useState<number[]>([]);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Odometer tick — slow, realistic placement counter
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setPrevCount((prev) => prev);
-      setCount((prev) => prev + 1);
-    }, 8000);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
 
   // Avatar population
   useEffect(() => {
@@ -89,9 +75,6 @@ export default function HeroSection() {
       }, AVATARS[idx].delay + 300);
     });
   }, []);
-
-  const currentStr = formatNumber(count).split('');
-  const prevStr = formatNumber(prevCount).split('');
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-navy pt-24 pb-20">
@@ -108,6 +91,7 @@ export default function HeroSection() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-amber/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-navy-light/30 blur-[80px] rounded-full pointer-events-none" />
 
+
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col items-center">
         {/* Ticker */}
         <div className="mb-10 flex flex-col items-center gap-3">
@@ -119,21 +103,9 @@ export default function HeroSection() {
           {/* Odometer */}
           <div className="flex items-baseline gap-0">
             <span
-              className="font-display font-black text-amber stat-number"
+              className="font-display font-black text-amber stat-number animate-none"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.04em' }}>
-              {currentStr.map((char, i) => {
-                if (char === ',') {
-                  return (
-                    <span key={`comma-${i}`} className="opacity-50">
-                      ,
-                    </span>);
-                }
-                return (
-                  <OdometerDigit
-                    key={`digit-${i}`}
-                    value={char}
-                    prevValue={prevStr[i] ?? char} />);
-              })}
+              3,847
             </span>
           </div>
           <p className="text-white/50 text-sm font-medium tracking-wide text-center">

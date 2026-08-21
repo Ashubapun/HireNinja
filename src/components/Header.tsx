@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAuth } from '@/contexts/AuthContext';
 
 const navLinks = [
   { label: 'Services', href: '/services' },
@@ -16,6 +17,7 @@ const navLinks = [
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
+  const { user, signOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -26,6 +28,8 @@ export default function Header() {
   }, []);
 
   const isLight = !pathname?.startsWith('/home') && pathname !== '/';
+
+  const userRole = user?.user_metadata?.role || 'candidate';
 
   return (
     <header
@@ -71,12 +75,39 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
+          {user ? (
+            <>
+              <Link
+                href={`/portal/${userRole}`}
+                className="px-5 py-2.5 border border-amber/35 text-amber font-bold text-xs uppercase tracking-widest rounded-full hover:bg-amber/15 transition-all duration-200"
+              >
+                Dashboard
+              </Link>
+              <button
+                onClick={async () => {
+                  await signOut();
+                  router.push('/home');
+                }}
+                className="text-white/60 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors duration-200"
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/login"
+              className="px-5 py-2.5 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white/10 transition-all duration-200"
+            >
+              Login
+            </Link>
+          )}
+
           <Link
             href="/contact"
             className="px-6 py-2.5 bg-amber text-navy font-bold text-xs uppercase tracking-widest rounded-full hover:bg-amber-light transition-all duration-200 hover:scale-105 amber-glow"
           >
-Contact Us
+            Contact Us
           </Link>
         </div>
 

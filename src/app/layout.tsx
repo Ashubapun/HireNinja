@@ -1,5 +1,6 @@
 import '@/styles/index.css';
 import React from 'react';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 export const metadata = {
     title: 'HireNinja',
@@ -13,7 +14,11 @@ export default function GlobalRootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <AuthProvider>
+                    {children}
+                </AuthProvider>
+            </body>
         </html>
     );
 }
